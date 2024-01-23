@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
 <title>ArBio</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/w3.css">
 <link rel="stylesheet" href="css/w3-theme-black.css">
 <link rel="stylesheet" href="css/font-awesome.min.css">
-<!-- Código para bibtex -->
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" /> 
 </head>
 <body id="myPage">
 
@@ -19,7 +15,6 @@
  <div class="w3-bar w3-theme-d2 w3-left-align">
   <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-hover-white w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
   <a href="index.html" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>ArBio</a>
-  <!-- <a href="research.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Research</a> -->
   <a href="publications.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Publications</a>
   <a href="team.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Team</a>
   <a href="teaching.html" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Teaching</a>
@@ -43,29 +38,27 @@
 </div>
 
 
-<!-- Seccion: About the group -->
-<div class="w3-container w3-padding-64 w3-center" id="publications">
-    <h1>Artificial Inteligence in Biomedicine (ArBio group) <br>
-      Publications
-    </h1>
+<!-- Seccion -->
+<div class="w3-container w3-padding-64 w3-center" id="teaching">
+  <h1>Artificial Inteligence in Biomedicine (ArBio group) <br>
+    Publications
+  </h1>
 
-    <div class="w3-quarter">
-      <img src="images/logo_arbio.png" alt="Boss" style="width:70%;">
-    </div>
+  <div class="w3-quarter">
+    <img src="images/logo_arbio.png" alt="Boss" style="width:70%;">
+  </div>
 
-    <div class="w3-padding-16">
-      <h3>Our research areas are focused in: image processing,  computer vision and machine learning and deep learning. 
-        In particular, our published works cover medical imaging (Rx, CT, MRI, PET), neuroimaging (MRI, DTI, fMRI) and photomicrography.
-        Also, we have addressed topics such as segmentation and detection, video tracking, 
-        underwater monitoring, 3D reconstruction and anomaly detection.
-        In addition, we have worked with supervised, unsupervised and reinforced classification.
-        </h3>
-    </div>
+  <div class="w3-padding-16">
+    <h3>
+    One of the ArBio group interests is the entailment with the scientific community 
+    about areas related to its research projects. And it is through sharing publications
+    of the advances developed, and scientific results of research within the group, that
+    we seek to generate new collaboration ties  and scientific knowledge exchange.
+    </h3>
+  </div>
 </div>
 
-
-
-<!-- Impartición de asignaturas – Posgrado -->
+<!-- BibTex -->
 <div class="w3-container w3-padding-64 w3-theme-l5" id="team">
   <div class="w3-quarter">
   <h2>Publications </h2>
@@ -98,29 +91,6 @@
 </footer>
 <!-- ----------------------------- -->
 
-
-<script>
-  // Script for side navigation
-  function w3_open() {
-    var x = document.getElementById("mySidebar");
-    x.style.width = "300px";
-    x.style.paddingTop = "10%";
-    x.style.display = "block";
-  }
-  
-  // Close side navigation
-  function w3_close() {document.getElementById("mySidebar").style.display = "none";}
-  
-  // Used to toggle the menu on smaller screens when clicking on the menu button
-  function openNav() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
-      x.className += " w3-show";
-    } else { 
-      x.className = x.className.replace(" w3-show", "");
-    }
-  }
-  </script>
 
 <!-- ------------------------------------- -->
 </body>
