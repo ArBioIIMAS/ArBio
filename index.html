@@ -11,10 +11,11 @@
 <style>
   .slide-text{
     color: #fff;
-    font-size: 40px;
+    font-size: 30px;
     position: absolute;
     top: 80%;
-    left: 2%;
+    left: 25%;
+    color: rgb(232, 212, 38);
   }  
   .slide {
       position: relative;
@@ -25,7 +26,7 @@
       position: relative;
       overflow: hidden;
       width: 100%;
-      height: calc(200px +1em); #300
+      height: calc(200px +1em); 
   }
   .slide-open:checked + .slide-item {
       position: static;
@@ -135,7 +136,6 @@
 <div class="w3-top">
  <div class="w3-bar w3-theme-d2 w3-left-align">
   <a href="#home" class="w3-bar-item w3-button w3-teal"><i class="fa fa-home w3-margin-right"></i>ArBio</a>
-  <!-- <a href="research.html" class="w3-bar-item w3-button w3-hide-medium w3-hover-white">Research</a> -->
   <a href="publications.html" class="w3-bar-item w3-button w3-hide-medium w3-hover-white">Publications</a>
   <a href="team.html" class="w3-bar-item w3-button w3-hide-medium w3-hover-white">Team</a>
   <a href="teaching.html" class="w3-bar-item w3-button w3-hide-medium w3-hover-white">Teaching</a>
@@ -152,9 +152,6 @@
 
 <!-- Imagen del IIMAS -->
 <div class="w3-display-container w3-animate-opacity">
-  <!-- <img src="images/iimas_azul.png" alt="iimas" style="width:100%;min-height:350px;max-height:600px;"> -->
-  <!-- width:100%;min-height:350px;max-height:600px; -->
-
   <div class="slide">
     <div class="slide-inner">
         <input class="slide-open" type="radio" id="slide-1" 
@@ -168,12 +165,17 @@
               name="slide" aria-hidden="true" hidden="">
         <div class="slide-item">
             <img src="images/escuela_invierno.jpeg" style="width:40%;min-height:300px;max-height:400px" class="center">
-      </div>
+            <label class="slide-text center"> 7ª Escuela de Invierno en Ciencia de Datos y Sistemas Complejos</label>
+        </div>
         <input class="slide-open" type="radio" id="slide-3" 
               name="slide" aria-hidden="true" hidden="">
         <div class="slide-item">
-          <img src="images/iimas_lateral.jpeg" style="width:60%;min-height:300px;max-height:400px" class="center">
-            <!-- <label class="slide-text">Descripción 3</label> -->
+          <img src="images/IIMAS_UAEY.png" style="width:60%;min-height:300px;max-height:400px" class="center">
+        </div>
+        <input class="slide-open" type="radio" id="slide-4" 
+              name="slide" aria-hidden="true" hidden="">
+        <div class="slide-item">
+            <img src="images/contact_merida.jpg" style="width:40%;min-height:300px;max-height:400px" class="center">
         </div>
         <label for="slide-3" class="slide-control prev control-1">‹</label>
         <label for="slide-2" class="slide-control next control-1">›</label>
@@ -181,6 +183,19 @@
         <label for="slide-3" class="slide-control next control-2">›</label>
         <label for="slide-2" class="slide-control prev control-3">‹</label>
         <label for="slide-1" class="slide-control next control-3">›</label>
+
+        <!-- <label for="slide-4" class="slide-control prev control-1">‹</label>
+        <label for="slide-4" class="slide-control next control-3">›</label>
+
+        <label for="slide-3" class="slide-control prev control-4">‹</label>
+        <label for="slide-3" class="slide-control next control-2">›</label>
+
+        <label for="slide-2" class="slide-control prev control-3">‹</label>
+        <label for="slide-2" class="slide-control next control-1">›</label>
+
+        <label for="slide-1" class="slide-control prev control-2">‹</label>
+        <label for="slide-1" class="slide-control next control-4">›</label> -->
+        
         <ol class="slide-indicador">
             <li>
                 <label for="slide-1" class="slide-circulo">•</label>
@@ -191,6 +206,9 @@
             <li>
                 <label for="slide-3" class="slide-circulo">•</label>
             </li>
+            <!-- <li>
+                <label for="slide-4" class="slide-circulo">•</label>
+            </li> -->
         </ol>
     </div>
 </div>
