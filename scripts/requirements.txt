@@ -5,6 +5,5 @@ scipy
 opencv-python-headless
 tensorflow-cpu
 pytube
-io
 ipython
 streamlit
