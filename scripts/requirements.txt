@@ -1,6 +1,5 @@
 matplotlib
 numpy
-PIL
 Pillow
 scipy
 opencv-python-headless
