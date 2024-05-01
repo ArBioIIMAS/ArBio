@@ -3,7 +3,7 @@ numpy
 Pillow
 scipy
 opencv-python-headless
-tensorflow-cpu
+tensorflow
 pytube
 ipython
 streamlit

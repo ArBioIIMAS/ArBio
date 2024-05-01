@@ -19,13 +19,9 @@ def main():
         plt.imshow(image)
         plt.axis("off")
         st.pyplot(fig)
-
-        #Aquí voy *************
         predictions = predict(image)
         st.write(predictions)
         
-
-
 def predict(image):
     IMAGE_SHAPE = (resize, resize,3)
     model = modelo() #load model
@@ -40,9 +36,7 @@ def predict(image):
     #Calling to segmentation process
     st.header("Masking")
     encode_mask(mask_array)
-
     result = f"Input shape: {original_shape},  ouput shape: {output_shape}"
-
     return result
 
 def encode_mask(mask_array):
