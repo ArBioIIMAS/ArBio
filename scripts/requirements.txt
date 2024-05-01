@@ -4,6 +4,7 @@ Pillow
 scipy
 opencv-python-headless
 tensorflow
+keras
 pytube
 ipython
 streamlit
