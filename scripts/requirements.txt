@@ -60,7 +60,6 @@ django-stubs==4.2.7
 django-stubs-ext==4.2.7
 djlint==1.34.1
 docutils==0.21.1
-duplicity==0.8.21
 EditorConfig==0.12.4
 exceptiongroup==1.1.3
 executing==1.2.0
