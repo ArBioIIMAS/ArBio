@@ -1,5 +1,4 @@
 import tensorflow as tf
-import os
 
 def modelo():
     # U-NET Model
