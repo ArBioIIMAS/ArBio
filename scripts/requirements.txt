@@ -31,7 +31,6 @@ Collectfast==2.2.0
 colorama==0.4.4
 coloredlogs==15.0.1
 comm==0.1.4
-command-not-found==0.3
 contourpy==1.1.1
 cookiecutter==2.6.0
 coverage==7.4.4
