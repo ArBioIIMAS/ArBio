@@ -4,7 +4,7 @@ Pillow
 scipy
 opencv-python-headless
 tensorflow
-keras
+keras==2.8.0
 pytube
 ipython
 streamlit
