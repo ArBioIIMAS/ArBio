@@ -57,6 +57,17 @@ def modelo():
     
     unet = tf.keras.Model(inputs=[inputs], outputs=[outputs])
 
-    unet.load_weights('pesos_chagas')
+    unet = unet.keras.layers.TFSMLayer('pesos_chagas', call_endpoint='serving_default')
+
+    #unet.load_weights('pesos_chagas')
 
     return unet
+
+#model = 
+
+# tfsm_model = keras.Sequential([
+#     keras.layers.TFSMLayer(
+#         '/kaggle/input/videoswin/tensorflow2/tiny/1/TFVideoSwinT_K400_IN1K_P244_W877_32x224', 
+#         call_endpoint="serving_default"
+#     )
+# ])

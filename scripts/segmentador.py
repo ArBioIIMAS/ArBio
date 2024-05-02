@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 import tensorflow as tf
+#import tf_keras as keras
+
 from tensorflow.keras import preprocessing
 from model import modelo
 import io
