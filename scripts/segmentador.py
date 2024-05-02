@@ -2,8 +2,11 @@ import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
-import tensorflow as tf
-from tensorflow.keras import preprocessing
+#import tensorflow as tf
+
+import tf_keras as keras
+
+#from tensorflow.keras import preprocessing
 from model import modelo
 import io
 
@@ -28,7 +31,10 @@ def predict(image):
     model = modelo() #load model
     img = image.convert('RGB')
     array_img = np.asarray(img)/255
-    x = tf.image.resize(array_img[None, ...],(resize,resize),method='bilinear',antialias=True)
+    #x = tf.image.resize(array_img[None, ...],(resize,resize),method='bilinear',antialias=True)
+
+    x = keras.image.resize(array_img[None, ...],(resize,resize),method='bilinear',antialias=True)
+
     mask_array = np.asarray(model.predict(x)[0, ..., 0]*255)
 
     original_shape = array_img.shape
