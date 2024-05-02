@@ -55,9 +55,7 @@ def modelo():
     
     outputs = tf.keras.layers.Conv2D(1, (1, 1), activation='sigmoid')(c9)
     
-    #unet = tf.keras.Model(inputs=[inputs], outputs=[outputs])
-
-    unet = tf.keras.models(inputs=[inputs], outputs=[outputs])
+    unet = tf.keras.Model(inputs=[inputs], outputs=[outputs])
 
     unet.load_weights('pesos_chagas')
 
