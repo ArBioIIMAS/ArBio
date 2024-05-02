@@ -3,7 +3,7 @@ numpy
 Pillow
 scipy
 opencv-python-headless
-tensorflow
+tensorflow>=2.8.0
 keras==2.8.0
 pytube
 ipython
