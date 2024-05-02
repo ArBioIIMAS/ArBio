@@ -57,7 +57,7 @@ def modelo():
     
     unet = tf.keras.Model(inputs=[inputs], outputs=[outputs])
 
-    unet.layers.TFSMLayer('pesos_chagas', call_endpoint='serving_default') 
+    unet = unet.keras.layers.TFSMLayer('pesos_chagas', call_endpoint='serving_default') 
 
     #unet.load_weights('pesos_chagas')
 
