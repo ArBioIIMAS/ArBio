@@ -3,8 +3,8 @@ numpy
 Pillow
 scipy
 opencv-python-headless
-tensorflow==2.8.0
-keras==2.8.0
+tensorflow
+keras
 pytube
 ipython
 streamlit
