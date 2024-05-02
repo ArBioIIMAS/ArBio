@@ -1,13 +1,14 @@
 import os
 os.environ["TF_USE_LEGACY_KERAS"] = "1"
+import tf_keras as keras
+
 import streamlit as st
 import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
-import tensorflow as tf
-from tensorflow.keras import preprocessing
 
-#import tf_keras as keras
+# import tensorflow as tf
+# from tensorflow.keras import preprocessing
 
 from model import modelo
 import io
