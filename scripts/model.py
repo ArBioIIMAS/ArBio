@@ -1,7 +1,5 @@
 import tensorflow as tf
 
-TF_USE_LEGACY_KERAS=1
-
 def modelo():
     # U-NET Model
     inputs = tf.keras.layers.Input((512,512,3))
@@ -57,18 +55,13 @@ def modelo():
     
     outputs = tf.keras.layers.Conv2D(1, (1, 1), activation='sigmoid')(c9)
     
-    unet = tf.keras.Model(inputs=[inputs], outputs=[outputs])
+    #unet = tf.keras.Model(inputs=[inputs], outputs=[outputs])
+
+    unet = tf.keras.models(inputs=[inputs], outputs=[outputs])
 
     unet.load_weights('pesos_chagas')
-
-    # unet.keras.layers.TFSMLayer("pesos_chagas")
 
 
     return unet
 
-#--------------
-# keras.layers.TFSMLayer("saved_model", call_endpoint="serving_default")
-
-# model.export("path/to/artifact")
-# reloaded_layer = TFSMLayer("path/to/artifact")
-# outputs = reloaded_layer(inputs)
+#tf.keras.models.load_model
