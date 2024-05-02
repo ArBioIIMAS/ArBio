@@ -9,7 +9,6 @@ from PIL import Image
 
 # import tensorflow as tf
 # from tensorflow.keras import preprocessing
-
 #from model import modelo
 import io
 
@@ -17,6 +16,10 @@ import io
 resize = 512
 st.title("Deep learning-based histopathological segmentation")
 st.header("Load an image")
+st.set_page_config(page_title="ArBio: Nest segmentation",
+                   page_icon="🧊",
+                   layout="wide",
+                   initial_sidebar_state="expanded",)
 
 def main():
     file_uploaded = st.file_uploader("Choose File", type=["png","jpg","jpeg"])
@@ -117,6 +120,8 @@ def modelo():
     unet.load_weights('pesos_chagas') #load_weights
 
     return unet
+
+
 
 if __name__ == "__main__":
     main()
