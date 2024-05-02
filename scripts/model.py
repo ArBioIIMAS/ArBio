@@ -57,6 +57,17 @@ def modelo():
     
     unet = tf.keras.Model(inputs=[inputs], outputs=[outputs])
 
-    unet.load_weights('pesos_chagas')
+    #unet.load_weights('pesos_chagas')
+
+    unet.keras.layers.TFSMLayer("pesos_chagas")
+
+
 
     return unet
+
+#--------------
+# keras.layers.TFSMLayer("saved_model", call_endpoint="serving_default")
+
+# model.export("path/to/artifact")
+# reloaded_layer = TFSMLayer("path/to/artifact")
+# outputs = reloaded_layer(inputs)
