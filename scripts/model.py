@@ -1,7 +1,5 @@
 import tensorflow as tf
 
-from keras.models import load_model
-
 def modelo():
     # U-NET Model
     inputs = tf.keras.layers.Input((512,512,3))
@@ -59,8 +57,6 @@ def modelo():
     
     unet = tf.keras.Model(inputs=[inputs], outputs=[outputs])
 
-    #unet.load_weights('pesos_chagas')
-
-    unet.load_model('pesos_chagas')
+    unet.load_weights('pesos_chagas')
 
     return unet
