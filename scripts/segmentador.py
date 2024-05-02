@@ -3,17 +3,10 @@ import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 import tensorflow as tf
-# from tensorflow.keras import preprocessing
+from tensorflow.keras import preprocessing
 from model import modelo
 import io
 
-
-#-------------
-import os
-os.environ["KERAS_BACKEND"] = "tensorflow"
-import keras
-keras.backend.backend(), keras.__version__
-#-----------
 
 resize = 512
 st.title("Deep learning-based histopathological segmentation")
