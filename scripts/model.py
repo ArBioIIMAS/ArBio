@@ -1,5 +1,12 @@
 import tensorflow as tf
 
+#-------------
+import os
+os.environ["KERAS_BACKEND"] = "tensorflow"
+import keras
+keras.backend.backend(), keras.__version__
+#-----------
+
 def modelo():
     # U-NET Model
     inputs = tf.keras.layers.Input((512,512,3))
