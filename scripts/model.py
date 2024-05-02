@@ -62,6 +62,6 @@ def modelo():
     
     unet = keras.Model(inputs=[inputs], outputs=[outputs])
 
-    unet.load_weights('pesos_chagas')
+    unet.load_model('pesos_chagas') #load_weights
 
     return unet
