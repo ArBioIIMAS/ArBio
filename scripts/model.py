@@ -57,6 +57,6 @@ def modelo():
     
     unet = tf.keras.Model(inputs=[inputs], outputs=[outputs])
 
-    unet.load_weights('pesos_chagas.keras')
+    unet.load_weights('pesos_chagas')
 
     return unet
