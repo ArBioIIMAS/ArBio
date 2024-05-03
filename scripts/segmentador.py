@@ -38,12 +38,8 @@ def predict(image):
     model = load_model()
     img = image.convert('RGB')
     array_img = np.asarray(img)/255
-    #x = tf.image.resize(array_img[None, ...],(resize,resize),method='bilinear',antialias=True)
-
     x = tf.keras.image.resize(array_img[None, ...],(resize,resize),method='bilinear',antialias=True)
-
     mask_array = np.asarray(model.predict(x)[0, ..., 0]*255)
-
     original_shape = array_img.shape
     output_shape = mask_array.shape
 
@@ -64,7 +60,7 @@ def encode_mask(mask_array):
 def load_model():
     import os
     if not os.path.isfile('model_chagas.h5'):
-        urllib.request.urlretrieve('https://github.com/ArBioIIMAS/ArBio/blob/main/scripts/model_chagas.h5', 'model.h5')
+        urllib.request.urlretrieve('https://github.com/ArBioIIMAS/ArBio/blob/main/scripts/model_chagas.h5', 'model_chagas.h5')
     return tf.keras.models.load_model('model_chagas.h5')
 
 # def modelo():
