@@ -8,6 +8,6 @@ scipy==1.11.2
 opencv-contrib-python==4.8.0.76
 opencv-python==4.9.0.80
 ipython==8.14.0
-streamlit==1.33.0
 matplotlib==3.8.0
 matplotlib-inline==0.1.6
+streamlit==1.33.0
