@@ -26,14 +26,16 @@ def main():
         predictions = predict(image)
         st.write(predictions)
         
-
-
 def predict(image):
     IMAGE_SHAPE = (resize, resize,3)
     #model = modelo() #load model
 
-    from keras.models import load_model
-    model = load_model('pesos_chagas.h5')
+    import subprocess
+    import os
+    if not os.path.isfile('pesos_chagas.h5'):
+        subprocess.run(['curl --output pesos_chagas.h5 "https://github.com/ArBioIIMAS/ArBio/blob/main/scripts/pesos_chagas.h5"'], shell=True)
+    model = tf.keras.models.load_model('pesos_chagas.h5', compile=False)
+
 
     img = image.convert('RGB')
     array_img = np.asarray(img)/255
