@@ -6,4 +6,5 @@ opencv-python-headless
 pytube
 ipython
 streamlit
-tf-keras
+tensorflow
+keras
