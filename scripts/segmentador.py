@@ -34,7 +34,7 @@ def predict(image):
     IMAGE_SHAPE = (resize, resize,3)
     #model = modelo() #load model
 
-    from tf.keras.models import load_model
+    from tensorflow.keras.models import load_model
     model = load_model('model.h5')
 
     img = image.convert('RGB')
