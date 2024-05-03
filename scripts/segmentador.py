@@ -114,11 +114,12 @@ def modelo():
     outputs = tf.keras.layers.Conv2D(1, (1, 1), activation='sigmoid')(c9)
     
     unet = tf.keras.Model(inputs=[inputs], outputs=[outputs])
-
     #unet.load_weights('pesos_chagas') #load_weights
 
-    from keras.models import load_model
-    unet = load_model('model_chagas.h5')
+    unet.load_weights('model_chagas.h5') #load_weights
+
+    # from keras.models import load_model
+    # unet = load_model('model_chagas.h5')
 
     return unet
 
