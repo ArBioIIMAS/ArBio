@@ -36,6 +36,8 @@ def predict(image):
     #model = modelo() #load model
 
     model = load_model()
+
+    print("******* modelo cargado **************")
     img = image.convert('RGB')
     array_img = np.asarray(img)/255
     x = tf.keras.image.resize(array_img[None, ...],(resize,resize),method='bilinear',antialias=True)
