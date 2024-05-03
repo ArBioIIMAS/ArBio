@@ -115,7 +115,10 @@ def modelo():
     
     unet = tf.keras.Model(inputs=[inputs], outputs=[outputs])
 
-    unet.load_weights('pesos_chagas') #load_weights
+    #unet.load_weights('pesos_chagas') #load_weights
+
+    from keras.models import load_model
+    unet = load_model('model_chagas.h5')
 
     return unet
 
