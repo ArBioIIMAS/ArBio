@@ -35,7 +35,11 @@ def predict(image):
     IMAGE_SHAPE = (resize, resize,3)
     #model = modelo() #load model
 
-    model = load_model()
+    #model = load_model()
+
+    from keras.utils.data_utils import get_file
+    weights_path = get_file("https://github.com/ArBioIIMAS/ArBio/blob/main/scripts/model_chagas.h5")
+    model.load_weights(weights_path)
 
     print("******* modelo cargado **************")
     img = image.convert('RGB')
