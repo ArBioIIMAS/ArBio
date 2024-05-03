@@ -12,12 +12,12 @@ import io
 
 
 resize = 512
-st.title("Deep learning-based histopathological segmentation")
-st.header("Load an image")
 st.set_page_config(page_title="ArBio: Nest segmentation",
                    page_icon="🧊",
                    layout="wide",
                    initial_sidebar_state="expanded",)
+st.title("Deep learning-based histopathological segmentation")
+st.header("Load an image")
 
 def main():
     file_uploaded = st.file_uploader("Choose File", type=["png","jpg","jpeg"])
