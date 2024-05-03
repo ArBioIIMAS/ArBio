@@ -34,9 +34,7 @@ def predict(image):
     IMAGE_SHAPE = (resize, resize,3)
     #model = modelo() #load model
 
-    from tensorflow.keras.models import load_model
-    model = load_model('model_chagas.h5')
-
+    model = load_model()
     img = image.convert('RGB')
     array_img = np.asarray(img)/255
     #x = tf.image.resize(array_img[None, ...],(resize,resize),method='bilinear',antialias=True)
@@ -61,6 +59,12 @@ def encode_mask(mask_array):
         plt.imshow(new_mask)
         plt.axis("off")
         st.pyplot(fig)    
+
+def load_model():
+    import os
+    if not os.path.isfile('model_chagas.h5'):
+        urllib.request.urlretrieve('https://github.com/ArBioIIMAS/ArBio/blob/main/scripts/model_chagas.h5', 'model.h5')
+    return tf.keras.models.load_model('model_chagas.h5')
 
 def modelo():
     # U-NET Model
