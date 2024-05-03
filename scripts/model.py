@@ -60,6 +60,6 @@ def modelo():
 
     unet.load_weights('../model/pesos_chagas')
 
-    unet.save("model_chagas.h5")
+    #unet.save("model_chagas.h5")
 
     return unet
