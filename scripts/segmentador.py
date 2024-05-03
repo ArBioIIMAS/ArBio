@@ -5,7 +5,8 @@ import numpy as np
 from PIL import Image
 import tensorflow as tf
 from tensorflow.keras import preprocessing
-from model import modelo
+
+#from model import modelo
 import io
 
 resize = 512
@@ -29,7 +30,11 @@ def main():
 
 def predict(image):
     IMAGE_SHAPE = (resize, resize,3)
-    model = modelo() #load model
+    #model = modelo() #load model
+
+    from keras.models import load_model
+    model = load_model('pesos_chagas.h5')
+
     img = image.convert('RGB')
     array_img = np.asarray(img)/255
     x = tf.image.resize(array_img[None, ...],(resize,resize),method='bilinear',antialias=True)
