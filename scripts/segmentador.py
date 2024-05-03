@@ -32,7 +32,11 @@ def main():
         
 def predict(image):
     IMAGE_SHAPE = (resize, resize,3)
-    model = modelo() #load model
+    #model = modelo() #load model
+
+    from tf.keras.models import load_model
+    model = load_model('model.h5')
+
     img = image.convert('RGB')
     array_img = np.asarray(img)/255
     #x = tf.image.resize(array_img[None, ...],(resize,resize),method='bilinear',antialias=True)
