@@ -9,6 +9,7 @@ from PIL import Image
 import tensorflow as tf
 from tensorflow.keras import preprocessing
 import io
+import urllib.request
 
 
 resize = 512
