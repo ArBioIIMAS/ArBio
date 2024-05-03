@@ -35,7 +35,7 @@ def predict(image):
     #model = modelo() #load model
 
     from tensorflow.keras.models import load_model
-    model = load_model('../model/model_chagas.h5')
+    model = load_model('..\model\model_chagas.h5')
 
     img = image.convert('RGB')
     array_img = np.asarray(img)/255
