@@ -34,7 +34,7 @@ def predict(image):
     import os
     if not os.path.isfile('model.h5'):
         subprocess.run(['curl --output model.h5 "https://github.com/ArBioIIMAS/ArBio/blob/main/scripts/pesos_chagas.h5"'], shell=True)
-    model = tf.keras.models.load_model('model.h5', compile=False,'r+')
+    model = tf.keras.models.load_model('model.h5', compile=False)
 
 
     img = image.convert('RGB')
