@@ -60,9 +60,9 @@ def modelo():
 
     import subprocess
     import os
-    if not os.path.isfile('pesos_chagas'):
-        subprocess.run(['curl --output pesos_chagas "https://github.com/ArBioIIMAS/ArBio/blob/main/scripts/pesos_chagas"'], shell=True)    
-    unet.load_weights('pesos_chagas')
+    if not os.path.isfile('pesos_chagas.h5'):
+        subprocess.run(['curl --output pesos_chagas.h5 "https://github.com/ArBioIIMAS/ArBio/blob/main/scripts/pesos_chagas.h5"'], shell=True)    
+    unet.load_weights('pesos_chagas.h5')
 
     #unet.save("model_chagas.h5")
 
