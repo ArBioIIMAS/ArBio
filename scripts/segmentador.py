@@ -55,7 +55,6 @@ def predict(model, image):
     result = "To save the mask, just right-click on image."
     return result
 
-
 def encode_mask(mask_array):
     with io.BytesIO() as bimg:
         new_mask = Image.fromarray(mask_array.astype(np.uint8), 'L')
