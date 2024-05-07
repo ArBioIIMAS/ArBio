@@ -14,6 +14,7 @@ st.header("Load an image")
 
 def load_model():
     import urllib.request
+    import os
     if not os.path.isfile('model.h5'):
         urllib.request.urlretrieve('https://github.com/ArBioIIMAS/ArBio/blob/main/scripts/pesos_chagas.h5', 'model.h5')
     return tf.keras.models.load_model('model.h5')
