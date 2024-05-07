@@ -46,10 +46,10 @@ def predict(model, image):
     #mask_array = np.asarray(model.predict(x)[0, ..., 0]*255)
 
     predictions = model.predict_generator(x, verbose=1)
-    # mask_array = np.asarray(predictions*255)
+    mask_array = np.asarray(predictions*255)
 
-    # st.header("Nest probability map")
-    # encode_mask(mask_array)
+    st.header("Nest probability map")
+    encode_mask(mask_array)
 
     result = "To save the mask, just right-click on image."
     return result
