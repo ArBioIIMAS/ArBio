@@ -33,7 +33,7 @@ def main():
         print("Segmentation")
         model = load_model()
         print(model)
-        #predictions = predict(model,image)
+        predictions = predict(model,image)
         #st.write(predictions)
 
    
@@ -46,8 +46,8 @@ def predict(model, image):
     #mask_array = np.asarray(model.predict(x)[0, ..., 0]*255)
 
     predictions = model.predict_generator(image, verbose=1)
-    # mask_array = np.asarray(predictions*255)
-    # return mask_array
+    mask_array = np.asarray(predictions*255)
+    return mask_array
 
 
 def encode_mask(mask_array):
