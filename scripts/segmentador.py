@@ -46,11 +46,10 @@ def predict(image):
     output_shape = mask_array.shape
 
     #Calling to segmentation process
-    st.header("Masking")
+    st.header("Nest probability map")
     encode_mask(mask_array)
 
-    result = f"Input shape: {original_shape},  ouput shape: {output_shape}"
-
+    result = "To save the mask, just right-click on image."
     return result
 
 def encode_mask(mask_array):
@@ -59,7 +58,16 @@ def encode_mask(mask_array):
         fig = plt.figure()
         plt.imshow(new_mask)
         plt.axis("off")
-        st.pyplot(fig)    
+        st.pyplot(fig)
+
+        st.header("Binary segmentation mask")
+        import cv2
+        _, thresh2 = cv2.threshold(mask_array, 120, 255, cv2.THRESH_BINARY) 
+
+        fig = plt.figure()
+        plt.imshow(thresh2,cmap="gray")
+        plt.axis("off")
+        st.pyplot(fig)  
 
 if __name__ == "__main__":
     main()
