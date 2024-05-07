@@ -58,6 +58,10 @@ def modelo():
     
     unet = tf.keras.Model(inputs=[inputs], outputs=[outputs])
 
+    import subprocess
+    import os
+    if not os.path.isfile('pesos_chagas'):
+        subprocess.run(['curl --output pesos_chagas "https://github.com/ArBioIIMAS/ArBio/blob/main/scripts/pesos_chagas"'], shell=True)    
     unet.load_weights('pesos_chagas')
 
     #unet.save("model_chagas.h5")
