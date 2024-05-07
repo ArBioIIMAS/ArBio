@@ -50,6 +50,7 @@ def predict(model, image):
 
     st.header("Nest probability map")
     encode_mask(mask_array)
+    st.header("Binary segmentation mask")
     binary_mask(mask_array)
 
     result = "To save the mask, just right-click on image."
@@ -64,14 +65,13 @@ def encode_mask(mask_array):
         st.pyplot(fig)
 
 def binary_mask(mask_array):
-    st.header("Binary segmentation mask")
-    import cv2
-    r, thresh2 = cv2.threshold(mask_array, 120, 255, cv2.THRESH_BINARY) 
-
-    fig = plt.figure()
-    plt.imshow(thresh2,cmap="gray")
-    plt.axis("off")
-    st.pyplot(fig) 
+    with io.BytesIO() as bimg:
+        import cv2
+        r, thresh2 = cv2.threshold(mask_array, 120, 255, cv2.THRESH_BINARY) 
+        # fig = plt.figure()
+        # plt.imshow(thresh2,cmap="gray")
+        # plt.axis("off")
+        # st.pyplot(fig) 
 
 if __name__ == "__main__":
     main()
