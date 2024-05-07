@@ -5,8 +5,7 @@ import numpy as np
 from PIL import Image
 import tensorflow as tf
 from tensorflow.keras import preprocessing
-
-#from model import modelo
+from model import modelo
 import io
 
 resize = 512
