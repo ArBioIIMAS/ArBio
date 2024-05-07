@@ -45,11 +45,14 @@ def predict(model, image):
     x = tf.image.resize(array_img[None, ...],(resize,resize),method='bilinear',antialias=True)
     #mask_array = np.asarray(model.predict(x)[0, ..., 0]*255)
 
-    predictions = model.predict_generator(image, verbose=1)
-    mask_array = np.asarray(predictions*255)
+    predictions = model.predict_generator(x, verbose=1)
+    # mask_array = np.asarray(predictions*255)
 
-    mask_array = 1
-    return mask_array
+    # st.header("Nest probability map")
+    # encode_mask(mask_array)
+
+    result = "To save the mask, just right-click on image."
+    return result
 
 
 def encode_mask(mask_array):
