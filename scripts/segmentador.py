@@ -30,32 +30,25 @@ def main():
         plt.axis("off")
         st.pyplot(fig)
 
-        #Aquí voy *************
-        predictions = predict(image)
-        st.write(predictions)
+        print("Segmentation")
+        model = load_model()
+        print(model)
+        predictions = predict(model,image)
+        #st.write(predictions)
 
    
-def predict(image):
+def predict(model, image):
     IMAGE_SHAPE = (resize, resize,3)
     #model = modelo() #load model
-
-    import subprocess
-    import os
-    if not os.path.isfile('model.h5'):
-        subprocess.run(['curl --output model.h5 "https://github.com/ArBioIIMAS/ArBio/raw/main/scripts/pesos_chagas.h5"'], shell=True)
-    model = tf.keras.models.load_model('model.h5', compile=False)
-
+   
     img = image.convert('RGB')
     array_img = np.asarray(img)/255
     x = tf.image.resize(array_img[None, ...],(resize,resize),method='bilinear',antialias=True)
-    mask_array = np.asarray(model.predict(x)[0, ..., 0]*255)
+    #mask_array = np.asarray(model.predict(x)[0, ..., 0]*255)
 
-    #Calling to segmentation process
-    st.header("Nest probability map")
-    encode_mask(mask_array)
-
-    result = "To save the mask, just right-click on image."
-    return result
+    predictions = model.predict_generator(image, verbose=1)
+    # mask_array = np.asarray(predictions*255)
+    # return mask_array
 
 
 def encode_mask(mask_array):
@@ -69,10 +62,11 @@ def encode_mask(mask_array):
         st.header("Binary segmentation mask")
         import cv2
         _, thresh2 = cv2.threshold(mask_array, 120, 255, cv2.THRESH_BINARY) 
-        # fig = plt.figure()
-        # plt.imshow(thresh2,cmap="gray")
-        # plt.axis("off")
-        # st.pyplot(fig)  
+
+        fig = plt.figure()
+        plt.imshow(thresh2,cmap="gray")
+        plt.axis("off")
+        st.pyplot(fig)  
 
 if __name__ == "__main__":
     main()
