@@ -68,10 +68,10 @@ def binary_mask(mask_array):
     with io.BytesIO() as bimg:
         import cv2
         r, thresh2 = cv2.threshold(mask_array, 120, 255, cv2.THRESH_BINARY)
-        # fig = plt.figure()
-        # plt.imshow(thresh2,cmap="gray")
-        # plt.axis("off")
-        # st.pyplot(fig) 
+        fig = plt.figure()
+        plt.imshow(thresh2,cmap="gray")
+        plt.axis("off")
+        st.pyplot(fig) 
 
 if __name__ == "__main__":
     main()
