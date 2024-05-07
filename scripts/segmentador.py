@@ -34,7 +34,7 @@ def main():
         model = load_model()
         print(model)
         predictions = predict(model,image)
-        #st.write(predictions)
+        st.write(predictions)
 
    
 def predict(model, image):
@@ -47,6 +47,8 @@ def predict(model, image):
 
     predictions = model.predict_generator(image, verbose=1)
     mask_array = np.asarray(predictions*255)
+
+    mask_array = 1
     return mask_array
 
 
