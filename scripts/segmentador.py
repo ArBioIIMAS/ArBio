@@ -33,13 +33,12 @@ def main():
         print("Segmentation")
         model = load_model()
         print(model)
-        predictions = predict(model,image)
+        #predictions = predict(model,image)
         #st.write(predictions)
 
    
 def predict(model, image):
     IMAGE_SHAPE = (resize, resize,3)
-    #model = modelo() #load model
    
     img = image.convert('RGB')
     array_img = np.asarray(img)/255
