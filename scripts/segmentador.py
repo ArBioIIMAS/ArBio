@@ -28,13 +28,13 @@ def main():
         
 def predict(image):
     IMAGE_SHAPE = (resize, resize,3)
-    #model = modelo() #load model
+    model = modelo() #load model
 
-    import subprocess
-    import os
-    if not os.path.isfile('model.h5'):
-        subprocess.run(['curl --output model.h5 "https://github.com/ArBioIIMAS/ArBio/blob/main/scripts/pesos_chagas.h5"'], shell=True)
-    model = tf.keras.models.load_model('model.h5', compile=False)
+    # import subprocess
+    # import os
+    # if not os.path.isfile('model.h5'):
+    #     subprocess.run(['curl --output model.h5 "https://github.com/ArBioIIMAS/ArBio/blob/main/scripts/pesos_chagas.h5"'], shell=True)
+    # model = tf.keras.models.load_model('model.h5', compile=False)
 
 
     img = image.convert('RGB')
