@@ -5,51 +5,49 @@ import numpy as np
 from PIL import Image
 import tensorflow as tf
 from tensorflow.keras import preprocessing
-from model import modelo
+#from model import modelo
 import io
 
 resize = 512
 st.title("Deep learning-based histopathological segmentation")
 st.header("Load an image")
 
+def load_model():
+    import urllib.request
+    if not os.path.isfile('model.h5'):
+        urllib.request.urlretrieve('https://github.com/ArBioIIMAS/ArBio/blob/main/scripts/pesos_chagas.h5', 'model.h5')
+    return tf.keras.models.load_model('model.h5')
+
 def main():
+    
     file_uploaded = st.file_uploader("Choose File", type=["png","jpg","jpeg"])
     if file_uploaded is not None:
+        print("Loading image")
         image = Image.open(file_uploaded)
         fig = plt.figure()
         plt.imshow(image)
         plt.axis("off")
         st.pyplot(fig)
 
-        #Aquí voy *************
-        predictions = predict(image)
-        st.write(predictions)
-        
-def predict(image):
+        print("Segmentation")
+        model = load_model()
+        predictions = predict(model,image)
+        #st.write(predictions)
+
+   
+def predict(model, image):
     IMAGE_SHAPE = (resize, resize,3)
-    model = modelo() #load model
-
-    # import subprocess
-    # import os
-    # if not os.path.isfile('model.h5'):
-    #     subprocess.run(['curl --output model.h5 "https://github.com/ArBioIIMAS/ArBio/blob/main/scripts/pesos_chagas.h5"'], shell=True)
-    # model = tf.keras.models.load_model('model.h5', compile=False)
-
-
+    #model = modelo() #load model
+   
     img = image.convert('RGB')
     array_img = np.asarray(img)/255
     x = tf.image.resize(array_img[None, ...],(resize,resize),method='bilinear',antialias=True)
-    mask_array = np.asarray(model.predict(x)[0, ..., 0]*255)
+    #mask_array = np.asarray(model.predict(x)[0, ..., 0]*255)
 
-    original_shape = array_img.shape
-    output_shape = mask_array.shape
+    predictions = model.predict_generator(image, verbose=1)
+    mask_array = np.asarray(predictions*255)
+    return mask_array
 
-    #Calling to segmentation process
-    st.header("Nest probability map")
-    encode_mask(mask_array)
-
-    result = "To save the mask, just right-click on image."
-    return result
 
 def encode_mask(mask_array):
     with io.BytesIO() as bimg:
