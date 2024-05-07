@@ -32,7 +32,9 @@ def main():
 
         print("Segmentation")
         model = load_model()
-        predictions = predict(model,image)
+
+        print(model)
+        #predictions = predict(model,image)
         #st.write(predictions)
 
    
