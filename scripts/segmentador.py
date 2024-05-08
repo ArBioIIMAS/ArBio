@@ -58,9 +58,21 @@ def binary_mask(mask_array):
         import cv2
         r, thresh2 = cv2.threshold(mask_array, 120, 255, cv2.THRESH_BINARY)
         fig = plt.figure()
+        ax = plt.Axes(fig, [0., 0., 1., 1.])
         plt.imshow(thresh2,cmap="gray")
         plt.axis("off")
         st.pyplot(fig) 
+
+
+    # sizes = np.shape(data)     
+    # fig = plt.figure()
+    # fig.set_size_inches(1. * sizes[0] / sizes[1], 1, forward = False)
+    # ax = plt.Axes(fig, [0., 0., 1., 1.])
+    # fig.add_axes(ax)
+    # ax.imshow(data)
+
+
+
 
 def load_model():
     if not os.path.isfile('model.h5'):
