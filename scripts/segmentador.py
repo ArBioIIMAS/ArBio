@@ -9,6 +9,8 @@ import urllib.request
 import os
 #****************************************************************#
 resize = 512
+width = 100
+height = 100
 
 def load_logo():
     if not os.path.isfile('logo_arbio.png'):
@@ -23,7 +25,7 @@ def add_logo(width, height):
 
 
 st.title("Deep-cruzi: Deep learning-based histopathological segmentation")
-my_logo = add_logo(width=50, height=60)
+my_logo = add_logo(width=width, height=height)
 st.sidebar.image(my_logo)
 
 #st.sidebar.image(add_logo(logo_path="your/logo/path", width=50, height=60)) 
