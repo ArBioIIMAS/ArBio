@@ -60,7 +60,7 @@ def binary_mask(mask_array):
         fig = plt.figure()
         plt.imshow(thresh2,cmap="gray")
         plt.axis("off")
-        st.pyplot(fig, bbox_inches="tight") 
+        st.pyplot(fig, bbox_inches='tight', pad_inches=0) 
 
 def load_model():
     if not os.path.isfile('model.h5'):
