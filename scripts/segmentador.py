@@ -88,11 +88,8 @@ def main():
 #************************** Dashboard ***************************#
 st.title("Deep-cruzi: A tool for segmenting histopathological chagas images based on deep-learning",)
 st.divider()
-
-# Deep learning-based histopathological segmentation
 my_logo = add_logo(width=width, height=height)
 st.sidebar.image(my_logo)
-#st.sidebar.markdown("[![Click me](https://arbioiimas.github.io/ArBio/images/logo_arbio.png)](https://streamlit.io)")
 st.sidebar.title("Artificial Intelligence in Biomedicine Group (ArBio)")
 st.sidebar.link_button("Go to ArBio", "https://arbioiimas.github.io/ArBio/")
 st.header("Load an image")
