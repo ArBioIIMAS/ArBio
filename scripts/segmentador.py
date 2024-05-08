@@ -11,7 +11,7 @@ import io
 resize = 512
 st.title("Deep learning-based histopathological segmentation")
 
-st.sidebar.markdown("My Logo (sidebar) should be on top of the Navigation within the sidebar")
+st.sidebar.markdown("Artificial Intelligence in Biomedicine Group (ArBio)")
 
 st.markdown("# Home")
 
