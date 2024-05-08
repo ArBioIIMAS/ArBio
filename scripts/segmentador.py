@@ -10,6 +10,7 @@ import io
 
 resize = 512
 st.title("Deep learning-based histopathological segmentation")
+st.image('../images/logo_arbio.png', caption='Sunrise by the mountains')
 st.header("Load an image")
 
 def load_model():
@@ -35,7 +36,7 @@ def main():
         print(model)
         predictions = predict(model,image)
         st.write(predictions)
-        reference = "References: Hevia-Montiel, N.; Haro, P.; Guillermo-Cordero, L.; Perez-Gonzalez, J. Deep Learning–Based Segmentation of Trypanosoma cruzi Nests in Histopathological Images. Electronics 2023, 12, 4144. https://doi.org/10.3390/electronics12194144"
+        reference = "Reference: Hevia-Montiel, N.; Haro, P.; Guillermo-Cordero, L.; Perez-Gonzalez, J. Deep Learning–Based Segmentation of Trypanosoma cruzi Nests in Histopathological Images. Electronics 2023, 12, 4144. https://doi.org/10.3390/electronics12194144"
         st.write(reference)
    
 def predict(model, image):
