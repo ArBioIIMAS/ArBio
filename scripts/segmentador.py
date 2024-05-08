@@ -20,7 +20,7 @@ def load_logo():
 def add_logo(width, height):
     """Read and return a resized logo"""
     logo = load_logo()
-    modified_logo = logo.resize((width, height))
+    modified_logo = logo#.resize((width, height))
     return modified_logo
 
 
