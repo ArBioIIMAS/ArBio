@@ -28,14 +28,9 @@ st.title("Deep-cruzi: A tool for segmenting histopathological images based on de
 
 
 # Deep learning-based histopathological segmentation
-
-
 my_logo = add_logo(width=width, height=height)
 st.sidebar.image(my_logo)
-
-#st.sidebar.image(add_logo(logo_path="your/logo/path", width=50, height=60)) 
-
-st.sidebar.markdown("Artificial Intelligence in Biomedicine Group (ArBio)")
+st.sidebar.title("Artificial Intelligence in Biomedicine Group (ArBio)")
 st.header("Load an image")
 
 
