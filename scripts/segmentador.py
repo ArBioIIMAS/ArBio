@@ -10,7 +10,11 @@ import io
 
 resize = 512
 st.title("Deep learning-based histopathological segmentation")
-st.image('logo_arbio.png', caption='Sunrise by the mountains')
+
+st.sidebar.markdown("My Logo (sidebar) should be on top of the Navigation within the sidebar")
+
+st.markdown("# Home")
+
 st.header("Load an image")
 
 def load_model():
