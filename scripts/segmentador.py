@@ -24,8 +24,8 @@ def add_logo(width, height):
     return modified_logo
 
 
-st.title("Deep-cruzi: A tool for segmenting histopathological images based on deep-learning")
-
+st.title("Deep-cruzi: A tool for segmenting histopathological images based on deep-learning",)
+st.divider()
 
 # Deep learning-based histopathological segmentation
 my_logo = add_logo(width=width, height=height)
@@ -72,8 +72,10 @@ def predict(model, image):
     predictions = model.predict_generator(x, verbose=1)
     mask_array = np.asarray(predictions[0, ..., 0]*255)
 
+    st.divider()
     st.header("Nest probability map")
     encode_mask(mask_array)
+    st.divider()
     st.header("Binary segmentation mask")
     binary_mask(mask_array)
 
