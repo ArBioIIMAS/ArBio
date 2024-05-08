@@ -24,7 +24,12 @@ def add_logo(width, height):
     return modified_logo
 
 
-st.title("Deep-cruzi: Deep learning-based histopathological segmentation")
+st.title("Deep-cruzi: A tool for segmenting histopathological images based on deep-learning")
+
+
+# Deep learning-based histopathological segmentation
+
+
 my_logo = add_logo(width=width, height=height)
 st.sidebar.image(my_logo)
 
