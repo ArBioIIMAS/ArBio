@@ -29,14 +29,13 @@ st.title("Deep-cruzi: A tool for segmenting histopathological images based on de
 
 # Deep learning-based histopathological segmentation
 my_logo = add_logo(width=width, height=height)
-#st.sidebar.image(my_logo)
-st.sidebar.markdown("[![Click me](https://arbioiimas.github.io/ArBio/images/logo_arbio.png)](https://streamlit.io)")
+st.sidebar.image(my_logo)
+#st.sidebar.markdown("[![Click me](https://arbioiimas.github.io/ArBio/images/logo_arbio.png)](https://streamlit.io)")
 st.sidebar.title("Artificial Intelligence in Biomedicine Group (ArBio)")
 st.header("Load an image")
 
 # with st.echo():
 #     st.markdown("[![Click me](https://arbioiimas.github.io/ArBio/images/logo_arbio.png)](https://streamlit.io)")
-
 
 def load_model():
     if not os.path.isfile('model.h5'):
