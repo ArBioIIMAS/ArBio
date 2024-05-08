@@ -86,7 +86,7 @@ def main():
         st.write(reference)
 
 #************************** Dashboard ***************************#
-st.title("Deep-cruzi: A tool for segmenting histopathological images based on deep-learning",)
+st.title("Deep-cruzi: A tool for segmenting histopathological chagas images based on deep-learning",)
 st.divider()
 
 # Deep learning-based histopathological segmentation
