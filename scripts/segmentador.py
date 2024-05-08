@@ -5,16 +5,38 @@ import numpy as np
 from PIL import Image
 import tensorflow as tf
 from tensorflow.keras import preprocessing
-#from model import modelo
+
 import io
 
+def add_logo():
+    st.markdown(
+        """
+        <style>
+            [data-testid="stSidebarNav"] {
+                background-image: url(http://placekitten.com/200/200);
+                background-repeat: no-repeat;
+                padding-top: 120px;
+                background-position: 20px 20px;
+            }
+            [data-testid="stSidebarNav"]::before {
+                content: "My Company Name";
+                margin-left: 20px;
+                margin-top: 20px;
+                font-size: 30px;
+                position: relative;
+                top: 100px;
+            }
+        </style>
+        """,
+        unsafe_allow_html=True,
+    )
+
 resize = 512
-st.title("Deep learning-based histopathological segmentation")
+st.title("Deep-cruzi: Deep learning-based histopathological segmentation")
 
+add_logo()
 st.sidebar.markdown("Artificial Intelligence in Biomedicine Group (ArBio)")
-
 st.markdown("# Home")
-
 st.header("Load an image")
 
 def load_model():
