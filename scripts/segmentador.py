@@ -53,7 +53,7 @@ def predict(model, image):
     st.header("Binary segmentation mask")
     binary_mask(mask_array)
 
-    result = "To save the mask, just right-click on image."
+    result = "To save the mask, just right-click on image. \n References: Hevia-Montiel, N.; Haro, P.; Guillermo-Cordero, L.; Perez-Gonzalez, J. Deep Learning–Based Segmentation of Trypanosoma cruzi Nests in Histopathological Images. Electronics 2023, 12, 4144. https://doi.org/10.3390/electronics12194144"
     return result
 
 def encode_mask(mask_array):
