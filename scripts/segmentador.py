@@ -5,18 +5,25 @@ from PIL import Image
 import tensorflow as tf
 from tensorflow.keras import preprocessing
 import io
+import urllib.request
+import os
 #****************************************************************#
 resize = 512
 
-def add_logo(logo_path, width, height):
+def load_logo():
+    if not os.path.isfile('logo_arbio.png'):
+        urllib.request.urlretrieve('https://arbioiimas.github.io/ArBio/images/logo_arbio.png', 'logo_arbio.png')
+    return Image.open('logo_arbio.png')
+
+def add_logo(width, height):
     """Read and return a resized logo"""
-    logo = Image.open(logo_path)
+    logo = load_logo()
     modified_logo = logo.resize((width, height))
     return modified_logo
 
 
 st.title("Deep-cruzi: Deep learning-based histopathological segmentation")
-my_logo = add_logo(logo_path="https://arbioiimas.github.io/ArBio/images/logo_arbio.png", width=50, height=60)
+my_logo = add_logo(width=50, height=60)
 st.sidebar.image(my_logo)
 
 #st.sidebar.image(add_logo(logo_path="your/logo/path", width=50, height=60)) 
@@ -27,8 +34,6 @@ st.header("Load an image")
 
 
 def load_model():
-    import urllib.request
-    import os
     if not os.path.isfile('model.h5'):
         urllib.request.urlretrieve('https://github.com/ArBioIIMAS/ArBio/raw/main/scripts/pesos_chagas.h5', 'model.h5')
     return tf.keras.models.load_model('model.h5')
