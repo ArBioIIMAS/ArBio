@@ -34,8 +34,7 @@ st.sidebar.title("Artificial Intelligence in Biomedicine Group (ArBio)")
 st.header("Load an image")
 
 with st.echo():
-    st.title("CAT")
-    st.markdown("[![Click me](app/static/cat.png)](https://streamlit.io)")
+    st.markdown("[![Click me](https://arbioiimas.github.io/ArBio/images/logo_arbio.png)](https://streamlit.io)")
 
 
 def load_model():
