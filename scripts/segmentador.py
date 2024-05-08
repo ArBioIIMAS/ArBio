@@ -51,7 +51,7 @@ def encode_mask(mask_array):
         fig = plt.figure()
         plt.imshow(new_mask)
         plt.axis("off")
-        st.pyplot(fig)
+        st.pyplot(fig, bbox_inches='tight', pad_inches=0) 
 
 def binary_mask(mask_array):
     with io.BytesIO() as bimg:
