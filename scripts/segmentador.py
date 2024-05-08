@@ -12,6 +12,7 @@ resize = 512
 width = 100
 height = 100
 
+#************************** Functions ***************************#
 def load_logo():
     if not os.path.isfile('logo_arbio.png'):
         urllib.request.urlretrieve('https://arbioiimas.github.io/ArBio/images/logo_arbio.png', 'logo_arbio.png')
@@ -23,44 +24,6 @@ def add_logo(width, height):
     modified_logo = logo#.resize((width, height))
     return modified_logo
 
-
-st.title("Deep-cruzi: A tool for segmenting histopathological images based on deep-learning",)
-st.divider()
-
-# Deep learning-based histopathological segmentation
-my_logo = add_logo(width=width, height=height)
-st.sidebar.image(my_logo)
-#st.sidebar.markdown("[![Click me](https://arbioiimas.github.io/ArBio/images/logo_arbio.png)](https://streamlit.io)")
-st.sidebar.title("Artificial Intelligence in Biomedicine Group (ArBio)")
-st.header("Load an image")
-
-# with st.echo():
-#     st.markdown("[![Click me](https://arbioiimas.github.io/ArBio/images/logo_arbio.png)](https://streamlit.io)")
-
-def load_model():
-    if not os.path.isfile('model.h5'):
-        urllib.request.urlretrieve('https://github.com/ArBioIIMAS/ArBio/raw/main/scripts/pesos_chagas.h5', 'model.h5')
-    return tf.keras.models.load_model('model.h5')
-
-def main():
-    
-    file_uploaded = st.file_uploader("Choose File", type=["png","jpg","jpeg"])
-    if file_uploaded is not None:
-        print("Loading image")
-        image = Image.open(file_uploaded)
-        fig = plt.figure()
-        plt.imshow(image)
-        plt.axis("off")
-        st.pyplot(fig)
-
-        print("Segmentation")
-        model = load_model()
-        print(model)
-        predictions = predict(model,image)
-        st.write(predictions)
-        reference = "Reference: Hevia-Montiel, N.; Haro, P.; Guillermo-Cordero, L.; Perez-Gonzalez, J. Deep Learning–Based Segmentation of Trypanosoma cruzi Nests in Histopathological Images. Electronics 2023, 12, 4144. https://doi.org/10.3390/electronics12194144"
-        st.write(reference)
-   
 def predict(model, image):
     IMAGE_SHAPE = (resize, resize,3)
    
@@ -98,6 +61,42 @@ def binary_mask(mask_array):
         plt.imshow(thresh2,cmap="gray")
         plt.axis("off")
         st.pyplot(fig) 
+
+def load_model():
+    if not os.path.isfile('model.h5'):
+        urllib.request.urlretrieve('https://github.com/ArBioIIMAS/ArBio/raw/main/scripts/pesos_chagas.h5', 'model.h5')
+    return tf.keras.models.load_model('model.h5')
+
+def main():
+    file_uploaded = st.file_uploader("Choose File", type=["png","jpg","jpeg"])
+    if file_uploaded is not None:
+        print("Loading image")
+        image = Image.open(file_uploaded)
+        fig = plt.figure()
+        plt.imshow(image)
+        plt.axis("off")
+        st.pyplot(fig)
+
+        print("Segmentation")
+        model = load_model()
+        print(model)
+        predictions = predict(model,image)
+        st.write(predictions)
+        reference = "Reference: Hevia-Montiel, N.; Haro, P.; Guillermo-Cordero, L.; Perez-Gonzalez, J. Deep Learning–Based Segmentation of Trypanosoma cruzi Nests in Histopathological Images. Electronics 2023, 12, 4144. https://doi.org/10.3390/electronics12194144"
+        st.write(reference)
+
+#************************** Dashboard ***************************#
+st.title("Deep-cruzi: A tool for segmenting histopathological images based on deep-learning",)
+st.divider()
+
+# Deep learning-based histopathological segmentation
+my_logo = add_logo(width=width, height=height)
+st.sidebar.image(my_logo)
+#st.sidebar.markdown("[![Click me](https://arbioiimas.github.io/ArBio/images/logo_arbio.png)](https://streamlit.io)")
+st.sidebar.title("Artificial Intelligence in Biomedicine Group (ArBio)")
+st.sidebar.link_button("Go to ArBio", "https://arbioiimas.github.io/ArBio/")
+st.header("Load an image")
+
 
 if __name__ == "__main__":
     main()
