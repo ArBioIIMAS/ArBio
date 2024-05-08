@@ -10,7 +10,7 @@ import io
 
 resize = 512
 st.title("Deep learning-based histopathological segmentation")
-st.image('../images/logo_arbio.png', caption='Sunrise by the mountains')
+st.image('logo_arbio.png', caption='Sunrise by the mountains')
 st.header("Load an image")
 
 def load_model():
