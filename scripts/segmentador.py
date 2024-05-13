@@ -71,6 +71,7 @@ def main():
     file_uploaded = st.file_uploader("Choose File", type=["png","jpg","jpeg"])
     if file_uploaded is not None:
         print("Loading image")
+        print("Preferably upload a histological image of cardiac tissue with hematoxylin and eosin staining at 40X.")
         image = Image.open(file_uploaded)
         fig = plt.figure()
         plt.imshow(image)
