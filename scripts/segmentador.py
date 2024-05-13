@@ -94,6 +94,7 @@ st.sidebar.image(my_logo)
 st.sidebar.title("Artificial Intelligence in Biomedicine Group (ArBio)")
 st.sidebar.link_button("Go to ArBio", "https://arbioiimas.github.io/ArBio/")
 st.header("Load an image")
+st.subheader("Preferably upload a histological image of cardiac tissue with hematoxylin and eosin staining at 40X.")
 
 
 if __name__ == "__main__":
