@@ -1,6 +1,0 @@
-streamlit==1.57.0
-streamlit-drawable-canvas==0.9.3
-spicy==0.16.0
-pillow==12.1.1
-scikit-image==0.26.0
-matplotlib==3.10.8
