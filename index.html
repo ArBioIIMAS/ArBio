@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ArBio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/w3.css">
+<link rel="stylesheet" href="css/w3-theme-black.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+
+<style>
+  .slide-text{
+    color: #fff;
+    font-size: 20px;
+    position: absolute;
+    top: 80%;
+    left: 10%;
+    color: rgb(13, 13, 15);
+  }  
+  .slide {
+      position: relative;
+      box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64);
+      margin-top: 26px;
+  }
+  .slide-inner {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      height: calc(200px +1em); 
+  }
+  .slide-open:checked + .slide-item {
+      position: static;
+      opacity: 100;
+  }
+  .slide-item {
+      position: absolute;
+      opacity: 0;
+      -webkit-transition: opacity 0.6s ease-out;
+      transition: opacity 0.6s ease-out;
+  }
+  .slide-item img {
+      display: block;
+      height: auto;
+      max-width: 100%;
+  }
+  .slide-control {
+      background: rgba(0, 0, 0, 0.28);
+      border-radius: 50%;
+      color: #fff;
+      cursor: pointer;
+      display: none;
+      font-size: 40px;
+      height: 40px;
+      line-height: 35px;
+      position: absolute;
+      top: 50%;
+      -webkit-transform: translate(0, -50%);
+      cursor: pointer;
+      -ms-transform: translate(0, -50%);
+      transform: translate(0, -50%);
+      text-align: center;
+      width: 40px;
+      z-index: 10;
+  }
+  .slide-control.prev {
+      left: 2%;
+  }
+  .slide-control.next {
+      right: 2%;
+  }
+  .slide-control:hover {
+      background: rgba(0, 0, 0, 0.8);
+      color: #aaaaaa;
+  }
+  #slide-1:checked ~ .control-1,
+  #slide-2:checked ~ .control-2,
+  #slide-3:checked ~ .control-3 {
+      display: block;
+  }
+  .slide-indicador {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      bottom: 2%;
+      left: 0;
+      right: 0;
+      text-align: center;
+      z-index: 10;
+  }
+  .slide-indicador li {
+      display: inline-block;
+      margin: 0 5px;
+  }
+  .slide-circulo {
+      color: #828282;
+      cursor: pointer;
+      display: block;
+      font-size: 35px;
+  }
+  .slide-circulo:hover {
+      color: #aaaaaa;
+  }
+  #slide-1:checked ~ .control-1 ~ .slide-indicador 
+       li:nth-child(1) .slide-circulo,
+  #slide-2:checked ~ .control-2 ~ .slide-indicador 
+        li:nth-child(2) .slide-circulo,
+  #slide-3:checked ~ .control-3 ~ .slide-indicador 
+        li:nth-child(3) .slide-circulo {
+      color: #428bca;
+  }
+  #titulo {
+      width: 100%;
+      position: absolute;
+      padding: 0px;
+      margin: 0px auto;
+      text-align: center;
+      font-size: 27px;
+      color: rgba(255, 255, 255, 1);
+      font-family: 'Open Sans', sans-serif;
+      z-index: 9999;
+      text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33), 
+           -1px 0px 2px rgba(255, 255, 255, 0);
+  }
+  .center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+</style>
+</head>
+<body id="myPage">
+
+
+<!-- Barra de menús -->
+<div class="w3-top">
+ <div class="w3-bar w3-theme-d2 w3-left-align">
+  <a href="#home" class="w3-bar-item w3-button w3-teal" style="width: 11%"><i class="fa fa-home w3-margin-right"></i>ArBio</a>
+  <a href="publications.html" class="w3-bar-item w3-button w3-hide-medium w3-hover-white" style="width: 11%">Publications</a>
+  <a href="team.html" class="w3-bar-item w3-button w3-hide-medium w3-hover-white" style="width: 11%">Team</a>
+  <a href="teaching.html" class="w3-bar-item w3-button w3-hide-medium w3-hover-white" style="width: 11%">Teaching</a>
+  <a href="projects.html" class="w3-bar-item w3-button w3-hide-medium w3-hover-white" style="width: 11%">Projects</a>
+  <a href="infraestructure.html" class="w3-bar-item w3-button w3-hide-medium w3-hover-white" style="width: 11%">Infraestructure</a>
+  <a href="software.html" class="w3-bar-item w3-button w3-hide-medium w3-hover-white" style="width: 11%">Software</a>
+  <a href="news.html" class="w3-bar-item w3-button w3-hide-medium w3-red" style="width: 11%" >News</a>
+  <a href="contact.html" class="w3-bar-item w3-button w3-hide-medium w3-hover-white" style="width: 11%">Contact</a>
+ </div>
+
+<!-- Barra de desplazamiento -->
+   <div id="navDemo" class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium">
+    <a href="#mission" class="w3-bar-item w3-button">Mission</a>
+  </div>
+</div>
+
+ <!-- Encabezado -->
+ <div class="w3-section w3-padding-16 w3-theme-l1">
+  <div class="w3-center">
+  <h2>Welcome to Artificial Intelligence in Biomedicine Group (ArBio)</h2>
+  </div>
+</div>
+
+<!-- Carrusel -->
+<div class="w3-display-container w3-animate-opacity">
+  <div class="slide">
+    <div class="slide-inner">
+        <input class="slide-open" type="radio" id="slide-1" name="slide" aria-hidden="true" hidden="" checked="checked">
+          <div class="slide-item">
+            <img src="images/Carrusel_ArBio.png" style="width:35%" class="center">
+            </a>
+          </div>
+        
+        <input class="slide-open" type="radio" id="slide-2" name="slide" aria-hidden="true" hidden="">
+        <div class="slide-item">
+            <a href="http://www.facmed.unam.mx/"><img src="images/2025_ChagasDay.png" style="width:35%" class="center"></a>
+            <!-- <label class="slide-text right">World Chagas Disease Day 14 April 2025 </label> -->
+        </div>
+
+        <input class="slide-open" type="radio" id="slide-3" name="slide" aria-hidden="true" hidden="">
+        <div class="slide-item">
+            <img src="images/2025_Carrusel_DraNidiyare.png" style="width:35%" class="center">
+            <!-- <label class="slide-text center">Presentation of two works at the XIX PECET symposium event, Colombia.</label> -->
+        </div>
+        <!-- <input class="slide-open" type="radio" id="slide-3" name="slide" aria-hidden="true" hidden="">
+        <div class="slide-item">
+          <img src="images/Carrusel_priscila.png" style="width:35%" class="center">
+          <label class="slide-text center">1st Place Award For The Best Research Poster at XXIV Congreso Veterinario</label>
+        </div> -->
+        <label for="slide-3" class="slide-control prev control-1">‹</label>
+        <label for="slide-2" class="slide-control next control-1">›</label>
+        <label for="slide-1" class="slide-control prev control-2">‹</label>
+        <label for="slide-3" class="slide-control next control-2">›</label>
+        <label for="slide-2" class="slide-control prev control-3">‹</label>
+        <label for="slide-1" class="slide-control next control-3">›</label>
+        <ol class="slide-indicador">
+            <li>
+                <label for="slide-1" class="slide-circulo">•</label>
+            </li>
+            <li>
+                <label for="slide-2" class="slide-circulo">•</label>
+            </li>
+            <li>
+                <label for="slide-3" class="slide-circulo">•</label>
+            </li>
+        </ol>
+    </div>
+</div>
+</div>
+
+
+<!-- Seccion: About the group -->
+<div class="w3-container w3-padding-64 w3-left-align" id="home">
+  <!-- <div class="w3-center">
+    <h1>Welcome to Artificial Intelligence in Biomedicine Group (ArBio)</h1>
+  </div> -->
+
+  <div class="w3-quarter">
+      <img src="images/logo_arbio.png" alt="Boss" style="width:80%;min-height:250px;max-height:400px;">
+  </div>
+
+  <div class="w3-padding-16">
+    <h4>ArBio is a multi-disciplinary research group interested in applied artificial intelligence to advance biomedicine areas. 
+        The group was created in 2019 to response to the current demands related 
+        to the development and use of image, data analysis and pattern recognition methods. 
+        Our solutions cover the areas of medicine, biology, cognitive and/or environmental sciences, so on. 
+        <!-- <br> -->
+        ArBio belong to the Unidad Académica del 
+        <a href="https://www.iimas.unam.mx/">Instituto de Investigaciones en Matemáticas Aplicadas y en Sistemas</a> 
+        en el estado de Yucatán IIMAS-UAEY - at <a href ="https://www.unam.mx/"> Universidad Nacional Autónoma de México (UNAM). </a>
+      </h4>
+  </div>
+
+  <div class="w3-third w3-margin-bottom">
+      <ul class="w3-ul w3-border w3-hover">
+        <li class="w3-theme-l2">
+          <p class="w3-medium"><h4>Our interest areas are:</h4></p>
+        </li>
+        <li class="w3-medium"><h4>Computer vision</h4></li>
+        <li class="w3-medium"><h4>Stereoscopic vision and 3D reconstruction</h4></li>
+        <li class="w3-medium"><h4>Biomedical images and data analysis</h4></li>
+        <li class="w3-medium"><h4>Machine and deep learning algorithms</h4></li>
+      </ul>
+  </div>
+
+  <div class="w3-third w3-margin-bottom">
+    <ul class="w3-ul w3-border w3-hover">
+        <li class="w3-theme-l2">
+          <p class="w3-medium"><h4>Are welcome:</h4></p>
+        </li>
+        <li class="w3-medium"><h4>PhD students</h4></li>
+        <li class="w3-medium"><h4>Master's students</h4></li>
+        <li class="w3-medium"><h4>Internships</h4></li>
+        <li class="w3-medium"><h4>Teaching</h4></li>
+      </ul>
+  </div>
+</div>
+
+<!-- Our mission -->
+<div class="w3-row-padding w3-padding-64 w3-theme-l1" id="mission">
+  <!-- <div class="w3-center">
+  <h2>Our mission</h2>
+  </div> -->
+    
+  <div class="w3-half">
+  <div class="w3-card w3-white">
+    <div class="w3-container">
+    <h3>Mission</h3>
+    <h4>Create technology and knowledge in the area of image processing, computer vision, data analysis and pattern recognition.
+        As well as train high-level graduate students in these areas. </h4>
+    </div>
+    </div>
+  </div>
+
+  <div class="w3-half">
+    <div class="w3-card w3-white">
+      <div class="w3-container">
+      <h3>Vision</h3>
+      <h4>Development robust computational algorithms to attend current 
+        problems at a regional, national, and international level
+        for solving real biomedicine problems and helping decision making.</h4>
+      </div>
+      </div>
+    </div>
+</div>
+
+<!-- Seccion: Collaborators (parte 1) -->
+<div class="w3-container w3-padding-64 w3-center" id="home">
+  <h1>Collaborators</h1>
+
+  <div class="w3-quarter">
+    <img src="images/logo_iimas.png" alt="IIMAS_UNAM" 
+         style="width:29%" class="w3 w3-hover-opacity">
+    <a href="https://www.iimas.unam.mx/"><p>Instituto de Investigaciones en Matemáticas <br> Aplicadas y en Sistemas.</p></a>
+  </div>
+
+  <div class="w3-quarter">
+    <img src="images/logo_enesmerida.png" alt="ENES_MERIDA"
+          style="width:70%" class="w3 w3-hover-opacity">
+    <a href="http://enesmerida.unam.mx/"><p>Escuela Nacional de Estudios Superiores</p></a>
+  </div>
+
+  <div class="w3-quarter">
+    <img src="images/logo_fac_psicologia_unam.jpg" alt="Psicologia_UNAM"
+          style="width:41%" class="w3 w3-hover-opacity">
+    <a href="https://www.psicologia.unam.mx/"><p>Facultad de Psicología</p></a>
+  </div>
+
+  <div class="w3-quarter">
+    <img src="images/logo_facultad_medicina_unam.jpg" alt="Medicina_UNAM"
+          style="width:43%" class="w3 w3-hover-opacity">
+    <a href="http://www.facmed.unam.mx/"><p>Facultad de Medicina</p></a>
+  </div>
+</div>
+
+
+<!-- Seccion: Collaborators (parte 2) -->
+<div class="w3-container w3-padding-64 w3-center" id="home">
+  <div class="w3-quarter">
+    <img src="images/logo-uabc-iicv-final.png" alt="Instituto de Investigaciones en Ciencias Veterinarias" 
+          style="width:29%" class="w3 w3-hover-opacity">
+    <a href="http://iicv.mxl.uabc.mx/"><p>Instituto de Investigaciones en Ciencias Veterinarias</p></a>
+  </div>
+
+  <div class="w3-quarter">
+    <img src="images/logo_uady.jpg" alt="Facultad de Medicina Veterinaria y Zootecnia" 
+          style="width:60%" class="w3 w3-hover-opacity">
+    <a href="https://ccba.uady.mx/"><p>Facultad de Medicina Veterinaria y Zootecnia</p></a>
+  </div>
+
+  <div class="w3-quarter">
+    <img src="images/logo_iztapalapa_uam.png" alt="Universidad Autónoma Metropolitana"
+          style="width:46%" class="w3 w3-hover-opacity">
+    <a href="http://www.iztapalapa.uam.mx/"><p>Universidad Autónoma Metropolitana</p></a>
+  </div>
+
+  <div class="w3-quarter">
+    <img src="images/logo_fac_ciencia_UASLP.png" alt="Facultad de Ciencias"
+          style="width:30%" class="w3-circle w3-hover-opacity">
+    <a href="https://www.fciencias.uaslp.mx/"><p>Facultad de Ciencias.</p></a>
+  </div>
+</div>
+
+<!-- Seccion: Collaborators (parte 3) -->
+<div class="w3-container w3-padding-64 w3-center" id="home">
+  <div class="w3-quarter">
+    <img src="images/INPer_logo.jpg" alt="Instituto Nacional de Perinatología" 
+          style="width:29%" class="w3 w3-hover-opacity">
+    <a href="https://www.gob.mx/salud/inper"><p>Instituto Nacional de Perinatología</p></a>
+  </div>
+
+  <div class="w3-quarter">
+    <img src="images/cinvestav_logo.png" alt="Cinvestav" style="width:25%" class="w3 w3-hover-opacity">
+    <a href="https://www.cinvestav.mx/"><p>Centro de Investigación y de Estudios Avanzados del Instituto Politécnico Nacional (Cinvestav)</p></a>
+  </div>
+
+  <div class="w3-quarter">
+    <img src="images/INSP_logo.png" alt="Escuela de Salud Pública de México"
+          style="width:98%" class="w3 w3-hover-opacity">
+    <a href="https://espm.mx/"><p>Instituto Nacional de Salud Pública / <br>Escuela de Salud Pública de México</p></a>
+  </div>
+
+  <div class="w3-quarter">
+    <img src="images/Hospital_Infantil_de_México_logo.png" alt="Hospital Infantil de México Federico Gómez"
+          style="width:28%" class="w3-circle w3-hover-opacity">
+    <a href="https://www.himfg.edu.mx/"><p>Hospital Infantil de México Federico Gómez</p></a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-padding-32 w3-theme-d1 w3-center">
+  <p>Hecho en México, IIMAS-UNAM. Todos los derechos reservados 2024.</p> 
+  <p>Esta página puede ser reproducida con fines no lucrativos, siempre y cuando no se mutile, <br>
+    se cite la fuente completa y su dirección electrónica, de otra forma, 
+    requiere permiso previo por escrito de la Institución.</p>
+    <a href="aviso_privacidad.html"><p>Aviso de privacidad.</p></a>
+  <p>Follow us</p>
+  <a href="https://twitter.com/IIMAS_UNAM">
+    <img src="images/x.png" alt="Twitter" style="width:42px;height:42px;">
+  </a>
+  <a href="https://www.facebook.com/IIMAS/">
+    <img src="images/facebook.png" alt="Facebook" style="width:42px;height:42px;">
+  </a>
+  <a href="https://www.instagram.com/iimas_unam/">
+    <img src="images/instagram.png" alt="Instagram" style="width:42px;height:42px;">
+  </a>
+</footer>
+<!-- ----------------------------- -->
+
+<script>
+  // Script for side navigation
+  function w3_open() {
+    var x = document.getElementById("mySidebar");
+    x.style.width = "300px";
+    x.style.paddingTop = "10%";
+    x.style.display = "block";
+  }
+  
+  // Close side navigation
+  function w3_close() {document.getElementById("mySidebar").style.display = "none";}
+  
+  // Used to toggle the menu on smaller screens when clicking on the menu button
+  function openNav() {
+    var x = document.getElementById("navDemo");
+    if (x.className.indexOf("w3-show") == -1) {
+      x.className += " w3-show";
+    } else { 
+      x.className = x.className.replace(" w3-show", "");
+    }
+  }
+  </script>
+
+<!-- ------------------------------------- -->
+</body>
+</html>
