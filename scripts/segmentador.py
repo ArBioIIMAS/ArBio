@@ -84,7 +84,7 @@ def main():
         st.write(predictions)
         reference = "Reference: Hevia-Montiel, N.; Haro, P.; Guillermo-Cordero, L.; Perez-Gonzalez, J. Deep Learning–Based Segmentation of Trypanosoma cruzi Nests in Histopathological Images. Electronics 2023, 12, 4144. https://doi.org/10.3390/electronics12194144"
         st.write(reference)
-        st.write("Disclaimer: No data is stored during use of the application.)
+        st.write("Disclaimer: No data is stored during use of the application.")
 
 #************************** Dashboard ***************************#
 st.title("Deep-cruzi: A tool for segmenting histopathological chagas images based on deep-learning",)
