@@ -1,5 +1,5 @@
 streamlit==1.40.0
-streamlit-drawable-canvas==0.9.3
+streamlit-drawable-canvas==0.9.2
 streamlit-image-coordinates==0.4.0
 spicy==0.16.0
 pillow==11.3.0
