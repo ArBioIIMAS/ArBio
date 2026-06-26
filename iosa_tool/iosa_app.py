@@ -612,7 +612,7 @@ def main():
     
    
 #************************** Dashboard ***************************#
-st.title("MorphOtolith: a tool for extracting discrete morphometric descriptors from otolith images")
+st.title("MorphOtolith (MO-Tool): a tool for extracting discrete morphometric descriptors from otolith images")
 st.divider()
 my_logo = add_logo()
 st.sidebar.image(my_logo)
