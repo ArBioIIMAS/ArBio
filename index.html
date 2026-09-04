@@ -72,6 +72,8 @@
       background: rgba(0, 0, 0, 0.8);
       color: #aaaaaa;
   }
+  #slide-0:checked ~ .control-0,{
+      display: block;
   #slide-1:checked ~ .control-1,
   #slide-2:checked ~ .control-2,
   #slide-3:checked ~ .control-3 {
@@ -101,6 +103,9 @@
   .slide-circulo:hover {
       color: #aaaaaa;
   }
+  #slide-0:checked ~ .control-0 ~ .slide-indicador 
+        li:nth-child(3) .slide-circulo {
+      color: #428bca;
   #slide-1:checked ~ .control-1 ~ .slide-indicador 
        li:nth-child(1) .slide-circulo,
   #slide-2:checked ~ .control-2 ~ .slide-indicador 
@@ -164,6 +169,12 @@
 <div class="w3-display-container w3-animate-opacity">
   <div class="slide">
     <div class="slide-inner">
+        <input class="slide-open" type="radio" id="slide-0" name="slide" aria-hidden="true" hidden="">
+          <div class="slide-item">
+            <a href="https://forms.gle/dLVxgz4Pe1YfeGAG9">
+              <img src="images/seminarios/WII+_SEMINARIO_ArBio_1320_x_466.jpg" style="width:35%" class="center">
+            <a>
+          </div>
         <input class="slide-open" type="radio" id="slide-1" name="slide" aria-hidden="true" hidden="" checked="checked">
           <div class="slide-item">
             <img src="images/Carrusel_ArBio.png" style="width:35%" class="center">
@@ -186,13 +197,18 @@
           <img src="images/Carrusel_priscila.png" style="width:35%" class="center">
           <label class="slide-text center">1st Place Award For The Best Research Poster at XXIV Congreso Veterinario</label>
         </div> -->
-        <label for="slide-3" class="slide-control prev control-1">‹</label>
-        <label for="slide-2" class="slide-control next control-1">›</label>
-        <label for="slide-1" class="slide-control prev control-2">‹</label>
-        <label for="slide-3" class="slide-control next control-2">›</label>
-        <label for="slide-2" class="slide-control prev control-3">‹</label>
-        <label for="slide-1" class="slide-control next control-3">›</label>
+        <label for="slide-3" class="slide-control prev control-2">‹</label>
+        <label for="slide-2" class="slide-control prev control-1">›</label>
+        <label for="slide-1" class="slide-control prev control-0">‹</label>
+        <label for="slide-0" class="slide-control prev control-3">‹</label>
+        <label for="slide-3" class="slide-control next control-0">›</label>
+        <label for="slide-2" class="slide-control next control-3">‹</label>
+        <label for="slide-1" class="slide-control next control-2">›</label>
+        <label for="slide-0" class="slide-control next control-1">›</label>
         <ol class="slide-indicador">
+            <li>
+                <label for="slide-0" class="slide-circulo">•</label>
+            </li>
             <li>
                 <label for="slide-1" class="slide-circulo">•</label>
             </li>
